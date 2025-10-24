@@ -1,5 +1,9 @@
 import requests as r, sys as s
 
+def M():
+    print("TikTok Video Control\n\nusage:\n  python tiktok.py list\n  python tiktok.py delete <id>\n\nsetup:\n  when prompted, paste your TikTok sessionid and user_id\n\nhow to get them:\n  1. open TikTok in Chrome\n  2. press F12 → Application tab → Cookies\n  3. copy sessionid and user_id from the TikTok domain\n")
+
+if len(s.argv)<2: M();exit()
 S = input("sessionid: ").strip()
 U = input("user_id: ").strip()
 H = {"User-Agent":"com.ss.android.ugc.trill/270603 (Linux; U; Android 11)","Cookie":f"sessionid={S}"}
@@ -16,10 +20,6 @@ def D(a):
     x = r.post(u,headers=H)
     print("deleted" if x.ok else "fail")
 
-def M():
-    print("TikTok Video Control\n\nusage:\n  python tiktok.py list\n  python tiktok.py delete <id>\n\nsetup:\n  paste your TikTok sessionid and user_id when prompted")
-
-if len(s.argv)<2: M()
-elif s.argv[1]=="list": L()
+if s.argv[1]=="list": L()
 elif s.argv[1]=="delete" and len(s.argv)==3: D(s.argv[2])
 else: M()
