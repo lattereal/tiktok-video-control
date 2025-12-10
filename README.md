@@ -1,6 +1,6 @@
 # TikTok Video Control (Obfuscated)
 
-Control your own TikToks from the command line. List or delete videos using TikTok’s private API.
+Control your own TikToks from the command line. List or delete videos using TikTok’s API.
 
 ## What This Tool Does
 
